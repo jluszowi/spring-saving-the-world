@@ -17,27 +17,27 @@ import java.util.stream.IntStream;
 
 @Component
 public class InitComponent {
-//    @Autowired
-//    PodatnikDAO podatnikDAO;
-//
-//    @Autowired
-//    FakturaDAO fakturaDAO;
-//
-//    @PostConstruct
-//    public void init() {
-//        IntStream.range(0, 10).forEach(i -> {
-//            Podatnik podatnik = new Podatnik("Adam", "Adam" + i);
-//            Podatnik podatnikSaved = podatnikDAO.save(podatnik);
-//
-//            IntStream.range(0, 10).forEach(j -> {
-//                Faktura faktura = new Faktura(3.5, "cos" + j);
-//                faktura.setPodatnik(podatnikSaved);
-//                faktura = fakturaDAO.save(faktura);
-//            });
-//        });
-//
-//        System.out.println();
-//    }
+   @Autowired
+   PodatnikDAO podatnikDAO;
+
+   @Autowired
+   FakturaDAO fakturaDAO;
+
+   @PostConstruct
+   public void init() {
+       IntStream.range(0, 10).forEach(i -> {
+           Podatnik podatnik = new Podatnik("Adam", "Adam" + i);
+           Podatnik podatnikSaved = podatnikDAO.save(podatnik);
+
+           IntStream.range(0, 10000).forEach(j -> {
+               Faktura faktura = new Faktura(3.50, "cos" + j);
+               faktura.setPodatnik(podatnikSaved);
+               faktura = fakturaDAO.save(faktura);
+           });
+       });
+
+       System.out.println();
+   }
 
     @PreDestroy
     public void teardown() {
