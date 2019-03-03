@@ -10,7 +10,12 @@ import java.util.Optional;
 public interface PodatnikDAO extends CrudRepository<Podatnik, Long> {
 
     Optional<Podatnik> findByImieIgnoreCase (String imie);
-//    List<Podatnik> findAllByFaktury_(String nazwisko);
-    // tą ninijkę można zapisać : List<Podatnik> findAllOrderByImieDesc();
+    List<Podatnik> findAllByNazwiskoIgnoreCaseOrderByImieDesc(String nazwisko);
+
+    List<Podatnik> findAllByFaktury_Tytul(String tytul);
+
+    List<Podatnik> findAll();
+
+
 
 }

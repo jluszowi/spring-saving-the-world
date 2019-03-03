@@ -16,13 +16,11 @@ public class Podatnik {
     @Column(nullable = false)
     String nazwisko;
 
-    @OneToMany(targetEntity = Faktura.class)
+    @OneToMany(mappedBy = "podatnik", fetch = FetchType.EAGER)
     List <Faktura> faktury;
 
     public Podatnik() {
-
     }
-
     public Podatnik(String imie, String nazwisko) {
         this.imie = imie;
         this.nazwisko = nazwisko;
